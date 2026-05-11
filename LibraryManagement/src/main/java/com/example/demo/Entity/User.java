@@ -39,8 +39,7 @@ public class User {
         books.add(book);
         book.setUser(this);
     }
-    
-    
+      
     public void removeBook(Book book) {
         books.remove(book);
         book.setUser(null);

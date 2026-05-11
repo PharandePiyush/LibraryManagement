@@ -29,7 +29,6 @@ public class Book {
     private String description;
     
     
-    // Many Books belong to One User
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnore  
