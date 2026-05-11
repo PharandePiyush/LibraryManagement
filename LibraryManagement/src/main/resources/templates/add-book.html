@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Book</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        .container { width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        input, textarea { width: 100%; padding: 8px; margin: 5px 0; }
+        button { padding: 10px 20px; background: blue; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Book</h2>
+        <form action="/books/add" method="post" th:object="${book}">
+            <label>Title:</label>
+            <input type="text" th:field="*{title}" required><br>
+            
+            <label>Author:</label>
+            <input type="text" th:field="*{author}" required><br>
+            
+            <label>Description:</label>
+            <textarea th:field="*{description}" rows="5" required></textarea><br>
+            
+            <button type="submit">Add Book</button>
+            
+        </form>
+    </div>
+</body>
+</html>

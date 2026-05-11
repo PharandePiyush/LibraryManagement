@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        .book-card { border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
+        .actions a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Book List</h2>
+    <a href="/dashboard">← Back to Dashboard</a>
+    
+    <div th:each="book : ${books}" class="book-card">
+		
+        <h3 th:text="${book.title}">Title</h3>
+        <p><strong>Author:</strong> <span th:text="${book.author}"></span></p>
+        <div class="actions">
+            <a th:href="@{/books/details/{id}(id=${book.id})}">View Details</a>
+            <a th:href="@{/books/update/{id}(id=${book.id})}">Update</a>
+            
+        </div>
+    </div>
+    
+    <div th:if="${books.empty}">
+        <p>No books found. <a href="/books/add">Add your first book!</a></p>
+    </div>
+</body>
+</html>

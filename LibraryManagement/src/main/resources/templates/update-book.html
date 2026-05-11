@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Book</title>
+    <style>
+        body { font-family: Arial; margin: 50px; background: #f0f2f5; }
+        .container { width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; background: #ffc107; color: black; border: none; border-radius: 5px; cursor: pointer; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Book</h2>
+        
+       
+		<form action="/books/update" method="post">
+		    <input type="hidden" name="id" th:value="${book.id}">
+		    <input type="text" name="title" th:value="${book.title}">
+		    <input type="text" name="author" th:value="${book.author}">
+		    <textarea name="description" th:text="${book.description}"></textarea>
+		    <button type="submit">Update Book</button>
+		</form>
+		
+		
+		
+        <p th:if="${error}" class="error" th:text="${error}"></p>
+    </div>
+</body>
+</html>

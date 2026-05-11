@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register - Library System</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        .container { width: 350px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        input { width: 100%; padding: 8px; margin: 5px 0; }
+        button { width: 100%; padding: 10px; background: green; color: white; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <form action="/register" method="post" th:object="${user}">
+            <input type="text" th:field="*{username}" placeholder="Username" required><br>
+            <input type="password" th:field="*{password}" placeholder="Password" required><br>
+            <input type="email" th:field="*{email}" placeholder="Email" required><br>
+            <input type="text" th:field="*{fullName}" placeholder="Full Name" required><br>
+            <button type="submit">Register</button>
+        </form>
+        <p th:if="${error}" class="error" th:text="${error}"></p>
+        <p>Already have an account? <a href="/">Login here</a></p>
+    </div>
+</body>
+</html>
